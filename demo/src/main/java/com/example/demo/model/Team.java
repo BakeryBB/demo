@@ -1,6 +1,15 @@
 package com.example.demo.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Team {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     private String name;
     private int memberCount;
 
@@ -9,11 +18,19 @@ public class Team {
 
     }
 
-    public Team(String name, int memberCount) {
+    public Team(int id,String name, int memberCount) {
+        this.id = id;
         this.name = name;
         this.memberCount = memberCount;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
     public String getName() {
         return name;
     }
@@ -26,6 +43,8 @@ public class Team {
     public void setMemberCount(int memberCount) {
         this.memberCount = memberCount;
     }
+
+   
     
     
 }
